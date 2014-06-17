@@ -3,9 +3,35 @@
 /* Controllers */
 
 angular.module('calendar.controllers', [])
-  .controller('MyCtrl1', ['$scope', function($scope) {
+    .controller('CalendarController', ['$scope', function($scope) {
+        var date = moment(),
+            monthLength = date.endOf('month').date(),
+            monthStart = date.startOf('month'),
+            weeks = [[]],
+            i,
+            j;
 
-  }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
+        $scope._weekdays = "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" ");
+        $scope._months = "January February March April May June July August September October November December".split(" ");
 
-  }]);
+        for (i = 0; i < monthStart.day(); i++) {
+            weeks[0].push('');
+        }
+
+        for (i = 1, j = 0; i < monthLength + 1; i++) {
+            if (weeks[j].length === 7) {
+                weeks.push([]);
+                j++;
+            }
+
+            weeks[j].push(i);
+
+            monthStart.add('days', 1);
+        }
+
+        console.log(weeks);
+        $scope._weeks = weeks;
+    }])
+    .controller('MyCtrl2', ['$scope', function($scope) {
+
+    }]);
