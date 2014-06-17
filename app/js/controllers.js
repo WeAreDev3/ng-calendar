@@ -5,6 +5,7 @@
 angular.module('calendar.controllers', [])
     .controller('CalendarController', ['$scope', function($scope) {
         var date = moment(),
+            monthEnd = date.endOf('month').day(),
             monthLength = date.endOf('month').date(),
             monthStart = date.startOf('month'),
             weeks = [[]],
@@ -25,8 +26,10 @@ angular.module('calendar.controllers', [])
             }
 
             weeks[j].push(i);
+        }
 
-            monthStart.add('days', 1);
+        for (i = 0; i < 6 - monthEnd; i++) {
+            weeks[j].push('');
         }
 
         console.log(weeks);

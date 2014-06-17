@@ -6,13 +6,7 @@
   </thead>
   <tbody>
       <tr ng-repeat="week in _weeks">
-          <td>{{week[0]}}</td>
-          <td>{{week[1]}}</td>
-          <td>{{week[2]}}</td>
-          <td>{{week[3]}}</td>
-          <td>{{week[4]}}</td>
-          <td>{{week[5]}}</td>
-          <td>{{week[6]}}</td>
+          <td ng-repeat="day in week track by $index">{{day}}</td>
       </tr>
   </tbody>
 </table>
