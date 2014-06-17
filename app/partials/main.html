@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th ng-repeat="weekday in _weekdays">{{weekday}}</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr ng-repeat="week in _weeks">
+          <td>{{week[0]}}</td>
+          <td>{{week[1]}}</td>
+          <td>{{week[2]}}</td>
+          <td>{{week[3]}}</td>
+          <td>{{week[4]}}</td>
+          <td>{{week[5]}}</td>
+          <td>{{week[6]}}</td>
+      </tr>
+  </tbody>
+</table>
