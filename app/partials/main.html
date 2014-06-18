@@ -1,4 +1,6 @@
-<table class="table table-bordered">
+<h1>{{title}}</h1>
+
+<table class="table table-bordered calendar">
   <thead>
     <tr>
         <th ng-repeat="weekday in _weekdays">{{weekday}}</th>
@@ -6,7 +8,9 @@
   </thead>
   <tbody>
       <tr ng-repeat="week in _weeks">
-          <td ng-repeat="day in week track by $index">{{day}}</td>
+          <td ng-repeat="day in week track by $index">
+              <div class="day">{{day}}</div>
+          </td>
       </tr>
   </tbody>
 </table>

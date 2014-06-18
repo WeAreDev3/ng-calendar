@@ -5,6 +5,7 @@
 angular.module('calendar.controllers', [])
     .controller('CalendarController', ['$scope', function($scope) {
         var date = moment(),
+            title = date.format('MMMM YYYY'),
             monthEnd = date.endOf('month').day(),
             monthLength = date.endOf('month').date(),
             monthStart = date.startOf('month'),
@@ -14,6 +15,8 @@ angular.module('calendar.controllers', [])
 
         $scope._weekdays = "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" ");
         $scope._months = "January February March April May June July August September October November December".split(" ");
+
+        $scope.title = title;
 
         for (i = 0; i < monthStart.day(); i++) {
             weeks[0].push('');
